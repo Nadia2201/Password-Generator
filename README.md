@@ -7,7 +7,7 @@ Link to the live application:
 
 Screenshot of the application:
 
-https://user-images.githubusercontent.com/116285509/211157675-ab5eda87-f99e-4ea2-be86-aac078ff79e6.PNG
+![image](https://user-images.githubusercontent.com/116285509/211157992-004af868-c409-405d-b85e-24f488ea31fc.PNG)
 
 # Installation
 N/A
