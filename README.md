@@ -7,6 +7,8 @@ Link to the live application:
 
 Screenshot of the application:
 
+image.png
+
 # Installation
 N/A
 
