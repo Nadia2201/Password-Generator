@@ -92,6 +92,7 @@ var numberOfCharacters = 0;         // This varaiable will store the number of c
 var passwordOptions = [];           // This array will store the options chosen by the user [password length, specialCharters? , numericCharacters? , lowerCasedCharacters? , upperCasedCharacters?]
 var listOfCharactersSelected = [];  // This array will contains the types of characters the user has selected by concatenating the arrays of characters defined at the top
 var randomPassword = "";            // This variable will store the random password generated
+
 // Function to prompt user for password options
 function getPasswordOptions() {
   // Ask the user to confirm what character types he wwants
@@ -113,6 +114,10 @@ function getPasswordOptions() {
 
 // Function for getting random password from elements of an array containing all the characters selected by the user
 function getRandom(arr) {
+  // These 2 variables need to be reinitialized to 0 so we are able to generate a new password by clicking again "Generate Password" without refreshing the browser
+  listOfCharactersSelected = [];
+  randomPassword = "";
+  
   //We only add to the array, the type of characters selected by the user
   if (arr[1] === true) {
     listOfCharactersSelected = listOfCharactersSelected.concat(specialCharacters);
@@ -138,6 +143,9 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
+  // These 2 variables need to be reinitialized to 0 so we are able to generate a new password by clicking again "Generate Password" without refreshing the browser
+  numberOfCharacters = 0;
+  passwordOptions = [];
 
   // Prompt the user to enter a password length
   numberOfCharacters = prompt("How many characters would you like your password to contain?");
