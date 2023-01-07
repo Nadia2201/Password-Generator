@@ -129,6 +129,8 @@ function generatePassword() {
   } else {
     // If the password length follows the criteria between 10 and 64, it is pushed in the array containing the options chosen by the user
     passwordOptions.push(numberOfCharacters);
+    // We execute the function getPasswordOptions() to get the types of characters chosen by the user
+    passwordOptions = getPasswordOptions();
   }
 }
 
