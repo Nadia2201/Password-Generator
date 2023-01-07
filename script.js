@@ -93,19 +93,21 @@ var passwordOptions = [];           // This array will store the options chosen 
 
 // Function to prompt user for password options
 function getPasswordOptions() {
+  // Ask the user to confirm what character types he wwants
+  var selectSpecialCharacters = confirm("Click OK to confirm you want to include special characters");
+  var selectNumericCharacters = confirm("Click OK to confirm you want to include numeric characters");
+  var selectLowerCasedCharacters = confirm("Click OK to confirm you want to include lower cased characters");
+  var selectUpperCasedCharacters = confirm("Click OK to confirm you want to include upper cased characters");
 
-// Prompt the user to enter a password length
-numberOfCharacters = prompt("How many characters would you like your password to contain?");
+  // Alert if password criteria not met for the character types when the user doesnt chose any types
+  if (selectSpecialCharacters === false && selectNumericCharacters === false && selectLowerCasedCharacters === false && selectUpperCasedCharacters === false) {
+    alert("You must select at least one character type!");
+    return false;
+  }
 
-// Alert if password criteria not met for the length
-if (numberOfCharacters < 10) {
-  alert("The password length must be at least 10 characters!")
-} else if (numberOfCharacters > 64) {
-  alert("The password length must be less than 65 characters!")
-} else {
-  // If the password length follows the criteria between 10 and 64, it is pushed in the array containing the options chosen by the user
-  passwordOptions.push(numberOfCharacters);
-}
+  // The characters types preferences are added to the array containing the options chosen by the user
+  passwordOptions.push(selectSpecialCharacters, selectNumericCharacters, selectLowerCasedCharacters, selectUpperCasedCharacters);
+  return passwordOptions;
 }
 
 // Function for getting a random element from an array
@@ -116,6 +118,18 @@ function getRandom(arr) {
 // Function to generate password with user input
 function generatePassword() {
 
+  // Prompt the user to enter a password length
+  numberOfCharacters = prompt("How many characters would you like your password to contain?");
+
+  // Alert if password criteria not met for the length
+  if (numberOfCharacters < 10) {
+    alert("The password length must be at least 10 characters!")
+  } else if (numberOfCharacters > 64) {
+    alert("The password length must be less than 65 characters!")
+  } else {
+    // If the password length follows the criteria between 10 and 64, it is pushed in the array containing the options chosen by the user
+    passwordOptions.push(numberOfCharacters);
+  }
 }
 
 // Get references to the #generate element
