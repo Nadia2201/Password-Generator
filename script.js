@@ -110,9 +110,29 @@ function getPasswordOptions() {
   return passwordOptions;
 }
 
-// Function for getting a random element from an array
+// Function for getting random password from elements of an array containing all the characters selected by the user
 function getRandom(arr) {
-
+  //We only add to the array, the type of characters selected by the user
+  if (arr[1] === true) {
+    listOfCharactersSelected = listOfCharactersSelected.concat(specialCharacters);
+  }
+  if (arr[2] === true) {
+    // We add the numeric characters twice to the array to have a better chance to get a number in the password as there are only 10 numeric characters
+    listOfCharactersSelected = listOfCharactersSelected.concat(numericCharacters);
+    listOfCharactersSelected = listOfCharactersSelected.concat(numericCharacters);
+  }
+  if (arr[3] === true) {
+    listOfCharactersSelected = listOfCharactersSelected.concat(lowerCasedCharacters);
+  }
+  if (arr[4] === true) {
+    listOfCharactersSelected = listOfCharactersSelected.concat(upperCasedCharacters);
+  }
+  
+  //Loop creating a random password by adding as many characters as chosen by the user
+  for (i = 1; i <= arr[0]; i++) {
+    randomPassword = randomPassword + listOfCharactersSelected[Math.floor(Math.random() * listOfCharactersSelected.length)];
+  }
+  return randomPassword;  
 }
 
 // Function to generate password with user input
