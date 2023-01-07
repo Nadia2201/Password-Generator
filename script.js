@@ -90,7 +90,8 @@ var upperCasedCharacters = [
 
 var numberOfCharacters = 0;         // This varaiable will store the number of characters the user has defined
 var passwordOptions = [];           // This array will store the options chosen by the user [password length, specialCharters? , numericCharacters? , lowerCasedCharacters? , upperCasedCharacters?]
-
+var listOfCharactersSelected = [];  // This array will contains the types of characters the user has selected by concatenating the arrays of characters defined at the top
+var randomPassword = "";            // This variable will store the random password generated
 // Function to prompt user for password options
 function getPasswordOptions() {
   // Ask the user to confirm what character types he wwants
@@ -151,6 +152,8 @@ function generatePassword() {
     passwordOptions.push(numberOfCharacters);
     // We execute the function getPasswordOptions() to get the types of characters chosen by the user
     passwordOptions = getPasswordOptions();
+    // The function getRandom takes as parameter the options chosen by the user 
+    return getRandom(passwordOptions);
   }
 }
 
