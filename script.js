@@ -150,12 +150,14 @@ function generatePassword() {
   // Prompt the user to enter a password length
   numberOfCharacters = prompt("How many characters would you like your password to contain?");
 
-  // Alert if password criteria not met for the length
+  // Alert if password criteria not met for the length anf type
   if (numberOfCharacters < 10) {
-    alert("The password length must be at least 10 characters!")
+    alert("The password length must be at least 10 characters!");
   } else if (numberOfCharacters > 64) {
-    alert("The password length must be less than 65 characters!")
-  } else {
+    alert("The password length must be maximum 64 characters!");
+  } else if (isNaN(numberOfCharacters)) {
+    alert("You have to enter a number between 10 and 64"); 
+  } else { 
     // If the password length follows the criteria between 10 and 64, it is pushed in the array containing the options chosen by the user
     passwordOptions.push(numberOfCharacters);
     // We execute the function getPasswordOptions() to get the types of characters chosen by the user
