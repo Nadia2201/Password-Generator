@@ -156,7 +156,7 @@ function generatePassword() {
   } else if (numberOfCharacters > 64) {
     alert("The password length must be maximum 64 characters!");
   } else if (isNaN(numberOfCharacters)) {
-    alert("You have to enter a number between 10 and 64"); 
+    alert("Wrong entry! You have to enter a number between 10 and 64."); 
   } else { 
     // If the password length follows the criteria between 10 and 64, it is pushed in the array containing the options chosen by the user
     passwordOptions.push(numberOfCharacters);
